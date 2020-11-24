@@ -1,0 +1,181 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		    {
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "山东大学校内报名"
+			}
+		    },
+			{
+				"path": "pages/login/login",
+				"style": {
+					"navigationBarTitleText": "山东大学校内报名"
+				}
+			},
+			
+			{
+				"path": "pages/baoming/showDetais",
+				"style": {
+					"navigationBarTitleText": "山东大学校内报名"
+				}
+			},
+			{
+				"path": "pages/enroll/addNewItem",
+				"style": {
+					"navigationBarTitleText": "山东大学校内报名"
+				}
+			},
+			{
+				"path": "pages/enroll/fistEditIns",
+				"style": {
+					"navigationBarTitleText": "山东大学校内报名"
+				}
+			},
+			{
+				"path": "pages/enroll/fistAddinsItem",
+				"style": {
+					"navigationBarTitleText": "山东大学校内报名"
+				}
+			},
+			{
+				"path": "pages/enroll/fistAddIns",
+				"style": {
+					"navigationBarTitleText": "山东大学校内报名"
+				}
+			},
+			{
+				"path": "pages/enroll/manageList",
+				"style": {
+					"navigationBarTitleText": "山东大学校内报名"
+				}
+			},
+			{
+				"path": "pages/enroll/addnofistItem",
+				"style": {
+					"navigationBarTitleText": "山东大学校内报名"
+				}
+			},
+			{
+				"path": "pages/enroll/onlyTianjia",
+				"style": {
+					"navigationBarTitleText": "山东大学校内报名"
+				}
+			},
+			{
+				"path": "pages/enroll/addInstanceLIst",
+				"style": {
+					"navigationBarTitleText": "山东大学校内报名"
+				}
+			},
+			{
+				"path": "pages/enroll/addProject",
+				"style": {
+					"navigationBarTitleText": "山东大学校内报名"
+				}
+			},
+			{
+				"path": "pages/enroll/addItemList",
+				"style": {
+					"navigationBarTitleText": "山东大学校内报名"
+				}
+			},
+			{
+				"path": "pages/enroll/personList",
+				"style": {
+					"navigationBarTitleText": "山东大学校内报名"
+				}
+			},
+			{
+				"path": "pages/fist/fist",
+				"style": {
+					"navigationBarTitleText": "山东大学校内报名"
+				}
+			},
+			{
+				"path": "pages/enroll/enrollEnrollProjectInstanceApply",
+				"style": {
+					"navigationBarTitleText": "山东大学校内报名"
+				}
+			},
+			{
+				"path": "pages/enroll/enrollEnrollProjectInstanceManage",
+				"style": {
+					"navigationBarTitleText": "山东大学校内报名"
+				}
+			},
+			{
+				"path": "pages/enroll/enrollEnrollProjectInstanceStatistics",
+				"style": {
+					"navigationBarTitleText": "山东大学校内报名"
+				}
+			},
+			{
+				"path": "pages/baoming/fillinfo",
+				"style": {
+					"navigationBarTitleText": "山东大学校内报名"
+				}
+			},
+			{
+				"path": "pages/baoming/baoming",
+				"style": {
+					"navigationBarTitleText": "山东大学校内报名"
+				}
+			},
+			{
+				"path": "pages/history/histroy",
+				"style": {
+					"navigationBarTitleText": "山东大学校内报名"
+				}
+			},
+			{
+				"path": "pages/history/historyItem",
+				"style": {
+					"navigationBarTitleText": "山东大学校内报名"
+				}
+			},
+			{
+				"path": "pages/base/baseInfo",
+				"style": {
+					"navigationBarTitleText": "山东大学校内报名"
+				}
+			},
+			{
+				"path": "pages/menu/menu",
+				"style": {
+					"navigationBarTitleText": "山东大学校内报名"
+				}
+			}
+		
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "山东大学校内报名",
+		"navigationBarBackgroundColor": "#e64340",
+		"backgroundColor": "#e64340"
+	},
+	"tabBar": {
+	    "color": "#7A7E83",
+	    "selectedColor": "#e64340",
+	    "borderStyle": "black",
+	    "backgroundColor": "#ffffff",
+	    "list": [
+			{
+			    "pagePath": "pages/fist/fist",
+			    "iconPath": "static/image/tabBar/home.png",
+			    "selectedIconPath": "static/image/tabBar/homeactive.png",
+			    "text": "首页"
+			},
+			{
+	        "pagePath": "pages/history/histroy",
+	        "iconPath": "static/image/tabBar/tab-cate.png",
+	        "selectedIconPath": "static/image/tabBar/tab-cate-current.png",
+	        "text": "记录"
+	    },
+		{
+		    "pagePath": "pages/base/baseInfo",
+		    "iconPath": "static/image/tabBar/me.png",
+		    "selectedIconPath": "static/image/tabBar/meactive.png",
+		    "text": "个人"
+		}]
+	}
+}
