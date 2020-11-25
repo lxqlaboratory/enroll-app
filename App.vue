@@ -146,6 +146,12 @@
 		margin-top: 20upx;
 	}
 
+	.bottomLine3 {
+		width: 100%;
+		height: 2upx;
+		background-color: #DDDDDD;
+		margin-top: 2upx;
+	}
 	.title{
 	  margin: 0 15upx;
 	  color: black;
@@ -191,9 +197,13 @@
 	}
 
 	.date2 {
+		color: #e64340;
 		font-size: 20upx;
 	}
-
+.date3 {
+		color: #7acfa6;
+		font-size: 20upx;
+	}
 	.address {
 		margin-top: 5upx;
 		font-size: 30upx;

@@ -12,16 +12,7 @@
 				</view>
 				<view class="bottomLine2"/>
 				
-			</view>
-		 
-
-		  
-		  
-		  
-	
-		  
-		  
-		  
+			</view>	  
 		  
 	</view>
 </template>
@@ -61,7 +52,6 @@
 						})
 		},
 		methods:{
-		
 			entry(instanceId,instanceDes){
 				
 				uni.navigateTo({

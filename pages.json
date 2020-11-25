@@ -165,12 +165,12 @@
 			    "selectedIconPath": "static/image/tabBar/homeactive.png",
 			    "text": "首页"
 			},
-			{
-	        "pagePath": "pages/history/histroy",
-	        "iconPath": "static/image/tabBar/tab-cate.png",
-	        "selectedIconPath": "static/image/tabBar/tab-cate-current.png",
-	        "text": "记录"
-	    },
+			// {
+	  //       "pagePath": "pages/history/histroy",
+	  //       "iconPath": "static/image/tabBar/tab-cate.png",
+	  //       "selectedIconPath": "static/image/tabBar/tab-cate-current.png",
+	  //       "text": "记录"
+	  //   },
 		{
 		    "pagePath": "pages/base/baseInfo",
 		    "iconPath": "static/image/tabBar/me.png",

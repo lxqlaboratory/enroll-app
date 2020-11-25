@@ -19,18 +19,32 @@
 				<button class="button-cell" @click="complete">完善个人信息</button>
 			</view>
 			<view v-if="!showyemian">
-				<view class="adBaseView" v-for="items in ProjectInstanceList" :key="items.instanceId" @click="entry(items.instanceId,items.isApply)">
+				<view v-for="items in ProjectInstanceList" :key="items.instanceId" >
 
-					<view class="cloumnlist">
-						{{items.instanceName}}
+					<view class="record-item" >
+						<view class="f1" @click="entry(items.instanceId,items.isApply)">
+							<view class="condition">{{items.instanceName}}</view>
+							<view class="date" v-if="items.isApply===true">已报名</view>
+							<view class="date" v-if="items.isApply===false">未报名</view>
+						</view>
+						<view class="f1" v-if="items.isApply===true">
+							<view class="address" @click="entry(items.instanceId,items.isApply)">{{items.itemName}}(点击查看）</view>
+							<view class="date2" v-if="items.isCandelete===true" @click="deleteItemPerson(items.instanceItemId)">删除报名</view>
+							<view class="date2" v-if="items.isCandelete===false">已通过</view>
+						</view>
+						<view class="f1" v-if="items.isApply===false" @click="entry(items.instanceId,items.isApply)">
+							<view class="address"></view>
+							<view class="date3" >点击报名</view>
+						</view>
 					</view>
-					<view class="bottomLine2" />
 
 				</view>
 			</view>
-			<view v-else>当前无报名信息</view>
 
 		</view>
+		<view v-else>当前无报名信息</view>
+
+	</view>
 	</view>
 </template>
 
@@ -43,6 +57,9 @@
 	import {
 		getEnrollProjectInstanceList
 	} from '@/api/login.js'
+	import {
+		deleteItemPerson
+	} from '@/api/project.js'
 	export default {
 		components: {
 			uniNoticeBar,
@@ -122,6 +139,39 @@
 					})
 				}
 
+			},
+			deleteItemPerson(instanceItemId) {
+
+			deleteItemPerson({instanceItemId:instanceItemId}).then(res => {
+			       if(res.re === 1){
+					   getEnrollProjectInstanceList({}).then(res2 => {
+					   	if (res2.re === -1) {
+					   		this.showText = true
+					   		this.texta = res2.data
+					   	} else {
+					   		this.ProjectInstanceList = res2.data.projectList
+					   		this.retType = res2.data.retType
+					   
+					   		if (this.retType === 1) {
+					   			this.showyemian = true;
+					   			this.showText = false;
+					   		} else if (this.retType === 2) {
+					   			this.showText = false;
+					   		}
+					   
+					   
+					   		if (this.ProjectInstanceList.length === 1) {
+					   
+					   		}
+					   	}
+					   
+					   }).catch(err => {
+					   
+					   })
+				   }
+			}).catch(err => {
+
+			})
 			},
 			complete() {
 				uni.switchTab({

@@ -66,3 +66,12 @@ export function deleteEnrollInstanceItem(data) {
 		data: data
 	})
 }
+
+
+export function deleteItemPerson(data) {
+	return request.request({
+		url: '/enroll/deleteItemPerson',
+		method: 'POST',
+		data: data
+	})
+}
