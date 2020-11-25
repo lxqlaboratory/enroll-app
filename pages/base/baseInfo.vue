@@ -115,6 +115,9 @@
 				mobilePhone: '',
 				bankNo: '',
 				bankName: '',
+				zzmm:'',
+				mzmc:'',
+				zc:'',
 				collegeName: '',
 				secondPerType: '',
 				secondPerTypeList: [],
@@ -146,6 +149,9 @@
 							this.genderCode = res.data.genderCode
 							this.genderName= res.data.genderName
 							this.perIdCard = res.data.perIdCard
+							this.zmm=res.data.zzmm
+							this.mzmc = res.data.mzmc
+							this.zc=res.data.zc
 							if(res.data.perBirthday===undefined){
 								var date = '1990-01-01'
 								this.perBirthday = date
@@ -233,7 +239,7 @@
 					personBaseInfoMaintain({personId:this.personId,secondPerType:this.secondPerType,
 					mobilePhone:this.mobilePhone,bankNo:this.bankNo,bankName:this.bankName,
 					perIdCard:this.perIdCard,perBirthday:this.perBirthday,genderCode:this.genderCode,
-					hasEnroll:this.hasEnroll
+					zzmm:this.zzmm,mzmc:this.mzmc,zc:this.zc,hasEnroll:this.hasEnroll
 					}).then(res => {
 						if(res.re === 1){
 							uni.showModal({
