@@ -65,18 +65,18 @@
 			</view>
 			<view class="bottomLine"/>
 		</view>			
-		<view class="adBaseView">
+		<view class="adBaseView" v-if="showBank">
 			<view class="adRowView">
 				<view class="headView">银行名称</view>
-				<view style="width: 70%;"><input  class="input" v-model="bankName" placeholder="请输入银行名称,可以为空" /></view>
+				<view style="width: 70%;"><input  class="input" v-model="bankName" placeholder="请输入银行名称" /></view>
 			</view>
 			<view class="bottomLine"/>
 		</view>
 			
-		<view class="adBaseView">
+		<view class="adBaseView" v-if="showBank">
 			<view class="adRowView">
 				<view class="headView">银行卡号</view>
-				<view style="width: 70%;"><input  class="input" v-model="bankNo" placeholder="请输入银行卡号,可以为空" /></view>
+				<view style="width: 70%;"><input  class="input" v-model="bankNo" placeholder="请输入银行卡号" /></view>
 			</view>
 			<view class="bottomLine"/>
 		</view>
@@ -119,6 +119,7 @@
 				mzmc:'',
 				zc:'',
 				collegeName: '',
+				showBank:false,
 				secondPerType: '',
 				secondPerTypeList: [],
 				genderIndex: 0,
@@ -165,6 +166,9 @@
 							}
 							this.hasEnroll = res.data.hasEnroll
 							this.secondPerType = this.secondPerTypeList[this.index].value
+							if(this.secondPerType === '12' ||this.secondPerType === undefined || this.secondPerType === '13'||this.secondPerType === '14'||this.secondPerType === '21'||this.secondPerType === '31'){
+								this.showBank = true
+							}
 						}).catch(err => {
 							
 						})
@@ -196,6 +200,11 @@
 				 this.index = e.target.value
 				 
 				this.secondPerType = this.secondPerTypeList[this.index].value
+				if(this.secondPerType === '12' ||this.secondPerType === undefined || this.secondPerType === '13'||this.secondPerType === '14'||this.secondPerType === '21'||this.secondPerType === '31'){
+					this.showBank = true
+				}else{
+					this.showBank = false
+				}
 			},
 			bindTimeChangePerBirth(e) {
 				this.perBirthday = e.target.value

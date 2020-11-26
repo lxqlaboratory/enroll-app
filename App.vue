@@ -3,8 +3,8 @@
 		globalData: {
 			vueSessionId: '',
 			dateTime: new Date(),
-			// enrollurl: 'https://enroll.sdu.edu.cn/func',
-			enrollurl: 'http://localhost:8080/func'
+			enrollurl: 'https://enroll.sdu.edu.cn/func',
+			// enrollurl: 'http://localhost:8080/func'
 		},
 		onLaunch: function() {
 			console.log('App Launch')

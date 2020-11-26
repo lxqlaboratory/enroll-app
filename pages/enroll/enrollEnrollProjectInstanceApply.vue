@@ -2,7 +2,7 @@
 	<view>
 	<uni-section title="校内报名" type="line"/>
 			<view v-if="!showyemian" >
-			  <view class="adBaseView" v-for="items in ProjectInstanceList" :key="items.instanceId" >
+			  <view v-for="items in ProjectInstanceList" :key="items.instanceId" >
 				 
 				<view class="record-item" >
 					<view class="f1" @click="entry(items.instanceId,items.isApply)">
@@ -61,17 +61,17 @@
 								this.showyemian = true;
 							}
 							if(this.ProjectInstanceList.length === 1){
-								if(this.ProjectInstanceList[0].isApply === true)
-								{
+		// 						if(this.ProjectInstanceList[0].isApply === true)
+		// 						{
 		
-									uni.navigateTo({
-										url:'../baoming/showDetais?instanceId='+this.ProjectInstanceList[0].instanceId+''
-									})
-								}else if(this.ProjectInstanceList[0].isApply === false){
-									uni.navigateTo({
-										url:'../baoming/baoming?instanceId='+this.ProjectInstanceList[0].instanceId+''
-									})
-								}
+		// 							uni.navigateTo({
+		// 								url:'../baoming/showDetais?instanceId='+this.ProjectInstanceList[0].instanceId+''
+		// 							})
+		// 						}else if(this.ProjectInstanceList[0].isApply === false){
+		// 							uni.navigateTo({
+		// 								url:'../baoming/baoming?instanceId='+this.ProjectInstanceList[0].instanceId+''
+		// 							})
+		// 						}
 							}
 						}).catch(err => {
 							

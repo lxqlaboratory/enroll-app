@@ -42,7 +42,7 @@
 			</view>
 
 		</view>
-		<view v-else>当前无报名信息</view>
+		<!-- <view v-else>当前无报名信息</view> -->
 
 	</view>
 	</view>
