@@ -149,7 +149,7 @@
 							this.genderCode = res.data.genderCode
 							this.genderName= res.data.genderName
 							this.perIdCard = res.data.perIdCard
-							this.zmm=res.data.zzmm
+							this.zzmm=res.data.zzmm
 							this.mzmc = res.data.mzmc
 							this.zc=res.data.zc
 							if(res.data.perBirthday===undefined){
