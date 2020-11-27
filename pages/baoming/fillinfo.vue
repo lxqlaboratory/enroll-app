@@ -65,10 +65,10 @@
 				showTrain: false,
 				instanceId: '',
 				retType: '',
-				shuttleItemList: '',
+				shuttleItemList: [],
 				shuttleSelect:'',
 				trainSelect:'',
-				trainItemListList: '',
+				trainItemListList: [],
 				isNeedCheck: false,
 				isCanCandidate: false,
 				candidateList: [],
@@ -238,7 +238,7 @@
 								enrollMode: enrollMode,
 								isNeedCheck: that.isNeedCheck,
 								trainSelect: that.trainSelect.text,
-								showShuttle: that.showShuttle.text
+								shuttleSelect: that.shuttleSelect.text
 							}).then(res => {
 								if (res.re === 1) {
 									uni.showToast({
