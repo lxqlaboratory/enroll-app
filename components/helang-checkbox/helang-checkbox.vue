@@ -121,7 +121,7 @@
 	text-align: center;
 	
 	&>view{
-		margin-bottom: 20rpx;
+		margin-bottom: 10rpx;
 		padding-right: 20rpx;
 		box-sizing: border-box;
 	}

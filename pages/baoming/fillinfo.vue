@@ -1,10 +1,10 @@
 <template>
 	<view>
-		<view v-show="showShuttle">
+		<view   v-show="showTrain">
 		<uni-section title="请选择培训地点" type="line"></uni-section>
 		<helang-checkbox ref="checkbox" @change="valueChange"></helang-checkbox>
 		</view>
-		<view v-show="showTrain">
+		<view v-show="showShuttle">
 		<uni-section title="请选择班车" type="line"></uni-section>
 		<helang-checkbox ref="checkbox2" @change="valueChange2"></helang-checkbox>
 		</view>
