@@ -15,7 +15,12 @@
 				<view class="bottomLine2" />
 			</view>
 		</view>
-
+		<view v-show="showResult">
+        <view class="example-info">
+			<text class="example-info-text"> {{resultLable}}:{{resultValue}}</text>
+		</view>
+		<view class="bottomLine3" />
+		</view>
 		<view v-if="isExportPdf">
 			<button class="button-cell" @click="donlowd">下载{{pdfName}}</button>
 		</view>
@@ -46,11 +51,14 @@
 				templateNum:'1',
 				pdfName:'',
 				pdfName1:'',
+				resultLable: '',
+				resultValue: '',
 				itemPersonId: '',
 				instanceName: '',
 				instanceDes: '',
 				resultList: '',
 				enrollStateName: '',
+				showResult:false,
 				itemList: []
 			}
 		},
@@ -70,6 +78,13 @@
 				this.isExportPdf1 = res.data.isExportPdf1
 				this.pdfName = res.data.pdfName
 				this.pdfName1 = res.data.pdfName1
+				this.resultLable = res.data.resultLable
+				this.resultValue = res.data.resultValue
+				if(this.resultValue=== null || this.resultValue=== undefined){
+					this.showResult = false
+				}else{
+					this.showResult = true
+				}
 			}).catch(err => {
 
 			})
