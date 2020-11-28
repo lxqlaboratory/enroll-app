@@ -22,16 +22,24 @@
 				<view v-for="items in ProjectInstanceList" :key="items.instanceId" >
 
 					<view class="record-item" >
-						<view class="f1" @click="entry(items.instanceId,items.isApply)">
+						<view class="f1" v-if="items.isCanEnroll===true" @click="entry(items.instanceId,items.isApply)">
+							<view class="condition">{{items.instanceName}}</view>
+							<view class="date" v-if="items.isApply===true">已报名</view>
+							<view class="date" v-if="items.isApply===false">未报名</view>
+						</view>
+						<view class="f1" v-if="items.isCanEnroll===false" >
 							<view class="condition">{{items.instanceName}}</view>
 							<view class="date" v-if="items.isApply===true">已报名</view>
 							<view class="date" v-if="items.isApply===false">未报名</view>
 						</view>
 						<view class="f1" v-if="items.isApply===true">
 							<view class="address" @click="entry(items.instanceId,items.isApply)">{{items.itemName}}(点击查看）</view>
+							<view v-if="items.isCanEnroll===true">
 							<view class="date2" v-if="items.isCandelete===true" @click="deleteItemPerson(items.instanceItemId)">删除报名</view>
+							</view>
 							<view class="date2" v-if="items.isCandelete===false">已通过</view>
 						</view>
+						<view v-if="items.isCanEnroll===true">
 						<view class="f1" v-if="items.isApply===false" @click="entry(items.instanceId,items.isApply)">
 							<view class="address"></view>
 							<view class="date3" >点击报名</view>
@@ -99,7 +107,7 @@
 				} else {
 					this.ProjectInstanceList = res.data.projectList
 					this.retType = res.data.retType
-
+                    
 					if (this.retType === 1) {
 						this.showyemian = true;
 						this.showText = false;

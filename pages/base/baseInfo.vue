@@ -51,7 +51,8 @@
 		</view>			
 		<view class="adBaseView">
 			<view class="adRowView">
-				<view class="headView">聘任类型</view>
+				<view class="headView">
+					<view class="mustView">*</view>聘任类型</view>
 				<view style="width: 70%;"><picker class="input" @change="bindchange" :value="index" :range="secondPerTypeList" :range-key="'label'">
 					<view class="uni-input">{{secondPerTypeList[index].label}}</view>
 					</picker></view>
@@ -60,14 +61,14 @@
 		</view>	
 		<view class="adBaseView">
 			<view class="adRowView">
-				<view class="headView">手机号</view>
+				<view class="headView"><view class="mustView">*</view>手机号</view>
 				<view style="width: 70%;"><input  class="input" v-model="mobilePhone" placeholder="请输入手机号" /></view>
 			</view>
 			<view class="bottomLine"/>
 		</view>			
 		<view class="adBaseView" v-if="showBank">
 			<view class="adRowView">
-				<view class="headView">银行名称</view>
+				<view class="headView"><view class="mustView">*</view>银行名称</view>
 				<view style="width: 70%;"><input  class="input" v-model="bankName" placeholder="请输入银行名称" /></view>
 			</view>
 			<view class="bottomLine"/>
@@ -75,15 +76,18 @@
 			
 		<view class="adBaseView" v-if="showBank">
 			<view class="adRowView">
-				<view class="headView">银行卡号</view>
+				<view class="headView"><view class="mustView">*</view>银行卡号</view>
 				<view style="width: 70%;"><input  class="input" v-model="bankNo" placeholder="请输入银行卡号" /></view>
 			</view>
 			<view class="bottomLine"/>
 		</view>
 		<view class="checkBoxG">
-		<checkbox-group @click="clickRead">
-			<label>
-				<checkbox v-model="hasEnroll" />是否参加过研究生监考
+		<checkbox-group @change="clickRead">
+			<label v-if="falag">
+				<checkbox :value="values" checked="true"/>是否参加过研究生监考
+			</label>
+			<label v-else>
+				<checkbox :value="values" />是否参加过研究生监考
 			</label>
 		</checkbox-group>
 		<view class="bottomLine"/>
@@ -111,6 +115,7 @@
 				genderCode:'',
 				genderName:'',
 				perBirthday:'',
+				values: true,
 				hasEnroll:false,
 				mobilePhone: '',
 				bankNo: '',
@@ -118,6 +123,7 @@
 				zzmm:'',
 				mzmc:'',
 				zc:'',
+				falag: '',
 				collegeName: '',
 				showBank:false,
 				secondPerType: '',
@@ -165,6 +171,10 @@
 								this.genderIndex = 1
 							}
 							this.hasEnroll = res.data.hasEnroll
+							
+							 this.falag = this.hasEnroll	
+							
+					       
 							this.secondPerType = this.secondPerTypeList[this.index].value
 							if(this.secondPerType === '12' ||this.secondPerType === undefined || this.secondPerType === '13'||this.secondPerType === '14'||this.secondPerType === '21'||this.secondPerType === '31'){
 								this.showBank = true
@@ -174,6 +184,17 @@
 						})
 		},
 		methods:{
+			clickRead(e){
+		
+				if(e.detail.value[0] === 'true'){
+					
+					this.hasEnroll = true
+					
+				}else{
+					this.hasEnroll = false
+				}
+				
+			},
 			bindPickerGenderChange(e) {
 				this.genderIndex = e.target.value
 				if (this.genderIndex === '0')
