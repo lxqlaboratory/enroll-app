@@ -19,15 +19,15 @@
 				<button class="button-cell" @click="complete">完善个人信息</button>
 			</view>
 			<view v-if="!showyemian">
-				<view v-for="items in ProjectInstanceList" :key="items.instanceId" >
+				<view v-for="items in ProjectInstanceList" :key="items.instanceId">
 
-					<view class="record-item" >
+					<view class="record-item">
 						<view class="f1" v-if="items.isCanEnroll===true" @click="entry(items.instanceId,items.isApply)">
 							<view class="condition">{{items.instanceName}}</view>
 							<view class="date" v-if="items.isApply===true">已报名</view>
 							<view class="date" v-if="items.isApply===false">未报名</view>
 						</view>
-						<view class="f1" v-if="items.isCanEnroll===false" >
+						<view class="f1" v-if="items.isCanEnroll===false">
 							<view class="condition">{{items.instanceName}}</view>
 							<view class="date" v-if="items.isApply===true">已报名</view>
 							<view class="date" v-if="items.isApply===false">未报名</view>
@@ -35,24 +35,24 @@
 						<view class="f1" v-if="items.isApply===true">
 							<view class="address" @click="entry(items.instanceId,items.isApply)">{{items.itemName}}(点击查看）</view>
 							<view v-if="items.isCanEnroll===true">
-							<view class="date2" v-if="items.isCandelete===true" @click="deleteItemPerson(items.instanceItemId)">删除报名</view>
+								<view class="date2" v-if="items.isCandelete===true" @click="deleteItemPerson(items.instanceItemId)">删除报名</view>
 							</view>
 							<view class="date2" v-if="items.isCandelete===false">已通过</view>
 						</view>
 						<view v-if="items.isCanEnroll===true">
-						<view class="f1" v-if="items.isApply===false" @click="entry(items.instanceId,items.isApply)">
-							<view class="address"></view>
-							<view class="date3" >点击报名</view>
+							<view class="f1" v-if="items.isApply===false" @click="entry(items.instanceId,items.isApply)">
+								<view class="address"></view>
+								<view class="date3">点击报名</view>
+							</view>
 						</view>
-					</view>
 
+					</view>
 				</view>
+
 			</view>
+			<!-- <view v-else>当前无报名信息</view> -->
 
 		</view>
-		<!-- <view v-else>当前无报名信息</view> -->
-
-	</view>
 	</view>
 </template>
 
@@ -107,7 +107,7 @@
 				} else {
 					this.ProjectInstanceList = res.data.projectList
 					this.retType = res.data.retType
-                    
+
 					if (this.retType === 1) {
 						this.showyemian = true;
 						this.showText = false;
@@ -150,36 +150,38 @@
 			},
 			deleteItemPerson(instanceItemId) {
 
-			deleteItemPerson({instanceItemId:instanceItemId}).then(res => {
-			       if(res.re === 1){
-					   getEnrollProjectInstanceList({}).then(res2 => {
-					   	if (res2.re === -1) {
-					   		this.showText = true
-					   		this.texta = res2.data
-					   	} else {
-					   		this.ProjectInstanceList = res2.data.projectList
-					   		this.retType = res2.data.retType
-					   
-					   		if (this.retType === 1) {
-					   			this.showyemian = true;
-					   			this.showText = false;
-					   		} else if (this.retType === 2) {
-					   			this.showText = false;
-					   		}
-					   
-					   
-					   		if (this.ProjectInstanceList.length === 1) {
-					   
-					   		}
-					   	}
-					   
-					   }).catch(err => {
-					   
-					   })
-				   }
-			}).catch(err => {
+				deleteItemPerson({
+					instanceItemId: instanceItemId
+				}).then(res => {
+					if (res.re === 1) {
+						getEnrollProjectInstanceList({}).then(res2 => {
+							if (res2.re === -1) {
+								this.showText = true
+								this.texta = res2.data
+							} else {
+								this.ProjectInstanceList = res2.data.projectList
+								this.retType = res2.data.retType
 
-			})
+								if (this.retType === 1) {
+									this.showyemian = true;
+									this.showText = false;
+								} else if (this.retType === 2) {
+									this.showText = false;
+								}
+
+
+								if (this.ProjectInstanceList.length === 1) {
+
+								}
+							}
+
+						}).catch(err => {
+
+						})
+					}
+				}).catch(err => {
+
+				})
 			},
 			complete() {
 				uni.switchTab({
