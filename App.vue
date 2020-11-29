@@ -21,7 +21,20 @@
 <style>
 	/*每个页面公共css */
 	/*每个页面公共css */
+.question {
+		display: flex;
+		flex-direction: row;
+		margin-top: 10px;
+		margin-bottom: 10px;
 
+	}
+
+	.question2 {
+		display: flex;
+		flex-direction: row;
+		margin-left: 55px;
+		font-size: 28upx;
+	}
 	.cloumnlist {
 		text-align: center;
 		/* margin-left: 30upx; */

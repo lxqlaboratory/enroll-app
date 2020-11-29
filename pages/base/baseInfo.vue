@@ -1,6 +1,9 @@
 <template>
 	<view>
+	<uni-notice-bar text="请务必确认【聘任类型】正确，否则将影响后期监考费用发放！"></uni-notice-bar>
+
 		<uni-section title="基本信息完善" type="line"/>
+	
 		<view class="adBaseView">
 			<view class="adRowView">
 				<view class="headView">姓名</view>
@@ -81,7 +84,7 @@
 			</view>
 			<view class="bottomLine"/>
 		</view>
-		<view class="checkBoxG">
+	<!-- 	<view class="checkBoxG">
 		<checkbox-group @change="clickRead">
 			<label v-if="falag">
 				<checkbox :value="values" checked="true"/>是否参加过研究生监考
@@ -91,7 +94,7 @@
 			</label>
 		</checkbox-group>
 		<view class="bottomLine"/>
-		</view>
+		</view> -->
 		<button class="button-cell" @click="submit">保存并提交</button>
 		<button class="button-cell2" @click="unboding">解除绑定</button>
 	</view>
@@ -316,4 +319,5 @@
 </script>
 
 <style>
+
 </style>
